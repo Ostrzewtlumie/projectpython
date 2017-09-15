@@ -1,6 +1,7 @@
 from flask import Flask
 from redis import Redis, RedisError
-from random import randint
+import string
+import random
 import os
 import socket
 
@@ -14,8 +15,8 @@ app = Flask(__name__)
 def hello():
 
 
-    html ="Liczba: <b>: {liczba} "
-    return html.format(liczba=randint(0,9))
+    html ="Haslo: <b>: {haslo} "
+    return html.format(haslo=''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits + string.ascii_lowercase) for _ in range(6)))
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
