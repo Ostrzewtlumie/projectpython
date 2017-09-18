@@ -22,7 +22,6 @@ def hello():
         h=''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits + string.ascii_lowercase) for _ in range(N))
         f.write(' '.join(a))
         a.append(h)
-
     f.close()
     return html.format(haslo=a,I=I)
 #konfiguracja Flska v3
