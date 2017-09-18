@@ -17,11 +17,12 @@ def hello():
     N=randint(6,12)
     I=randint(1,10)
     a=[]
-    for x in range(0, I):
-        haslo=''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits + string.ascii_lowercase) for _ in range(N))
-        a.append(haslo)
     f= open('table.txt', 'w')
-    f.writelines(haslo)
+    for x in range(0, I):
+        h=''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits + string.ascii_lowercase) for _ in range(N))
+        f.write(' '.join(a))
+        a.append(h)
+
     f.close()
     return html.format(haslo=a,I=I)
 #konfiguracja Flska v3
