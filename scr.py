@@ -10,7 +10,10 @@ app = Flask(__name__)
 #losowanie i wyswietlanie hasla
 def hello():
     html ="Ilosc wylosowanych hasel: {I}<br>"\
-        "Hasla: <b>: {haslo} "
+    "Hasla: <b> {haslo}</b><br> "\
+    "Aby wylosowac ponownie hasla: <FORM>"\
+"<INPUT TYPE='button' onClick='history.go(0)' VALUE='Losuj!'>"\
+"</FORM>"
     N=randint(6,12)
     I=randint(1,10)
     a=[]
