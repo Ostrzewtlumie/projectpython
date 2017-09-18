@@ -9,10 +9,18 @@ app = Flask(__name__)
 @app.route("/")
 #losowanie i wyswietlanie hasla
 def hello():
-    html ="Haslo: <b>: {haslo} "
+    html ="Ilosc wylosowanych hasel: {I}<br>"\
+        "Hasla: <b>: {haslo} "
     N=randint(6,12)
-    haslo=''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits + string.ascii_lowercase) for _ in range(N))
-    return html.format(haslo=haslo)
+    I=randint(1,10)
+    a=[]
+    for x in range(0, I):
+        haslo=''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits + string.ascii_lowercase) for _ in range(N))
+        a.append(haslo)
+    f= open('table.txt', 'w')
+    f.writelines(haslo)
+    f.close()
+    return html.format(haslo=a,I=I)
 #konfiguracja Flska v3
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
